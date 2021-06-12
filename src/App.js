@@ -1,23 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
+import Table from "./components/Table";
 
 function App() {
+  const [exerciseData, setExerciseData] = useState([]);
+  const [gender, setGender] = useState('male');
+
+  useEffect(() => {
+    loadExerciseData();
+  }, []);
+
+  const loadExerciseData = async () => {
+    const response = await fetch(
+      "https://private-922d75-recruitmenttechnicaltest.apiary-mock.com/customexercises/"
+    );
+    const data = await response.json();
+    setExerciseData(data);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Exercise List</h1>
+
+      <div class="btn-group btn-toggle gender">
+        <input
+          type="button"
+          name="gender"
+          class="btn btn-default"
+          value="Male"
+          checked={gender === "male"}
+          onClick={() => {
+            setGender("male");
+          }}
+        />
+        <input
+          type="button"
+          name="gender"
+          class="btn btn-primary active"
+          value="Female"
+          checked={gender === "female"}
+          onClick={() => {
+            setGender("female");
+          }}
+        />
+      </div>
+
+      <Table exercises={exerciseData.exercises} gender={gender} />
     </div>
   );
 }
