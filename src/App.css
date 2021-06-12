@@ -2,50 +2,12 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: transparent;
-  /* background-image: url("./assets/icon/select@3x.png"); */
-  background-repeat: no-repeat;
-  background-position-x: 90%;
-  background-position-y: 50%;
-  background-size: 0.7em;
-}
-
 .exercise-data {
   /* float: right; */
   /* margin-right: 50px; */
   width: 50%;
   padding: 40px;
   margin: auto;
-}
-
-.content {
-  clear: both;
-  padding-top: 10px;
 }
 
 .tableRow {
@@ -62,14 +24,20 @@ select {
 }
 
 .femaleImage {
-  float: right;
-  font-size: 18px;
-  font-weight: 500;
+  max-width: 130px;
+  padding: 20px 30px 20px 20px;
+}
+
+.maleImage {
+  max-width: 130px;
+  padding: 20px 30px 20px 20px;
 }
 
 .firstAndSecondColumn {
   width: 85%;
-  margin: auto;
+  margin-top: 40px;
+  text-align: left;
+  padding-left: 30px;
 }
 
 .maleName {
@@ -78,27 +46,249 @@ select {
 }
 
 .exerciseName {
-  font-size: 26px;
+  font-size: 30px;
 }
 
-@media only screen and (max-width: 1180px) and (min-width: 420px) {
-  .exercise-data {
-    width: 90%;
+.title {
+  color: #70cdee;
+  margin-top: 50px;
+  font-size: 50px;
+}
+
+html * {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+.viewInstructions {
+  padding-top: 20px;
+  cursor: pointer;
+  color: gray;
+}
+
+.extraContent {
+  margin-top: 20px;
+  font-size: 15px;
+  animation: fadeInAnimation ease 3s;
+}
+
+body {
+  animation: fadeInAnimation ease 3s;
+}
+
+exercise-data {
+  animation: fadeInAnimation ease 6s;
+}
+
+.female {
+  display: none;
+}
+
+.female,
+.male {
+  color: white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+}
+
+input:checked + .slider .female {
+  display: block;
+}
+
+input:checked + .slider .male {
+  display: none;
+}
+
+/*--------- END --------*/
+
+/* Rounded sliders */
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
-@media only screen and (max-width: 420px) {
+.femaleImageMobile {
+  display: none;
+}
 
+.maleImageMobile {
+  display: none;
+}
+
+.extraContent > ol {
+  padding: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .maleImage {
+    display: none;
+  }
+  .femaleImage {
+    display: none;
+  }
   .exercise-data {
-    width: 90%;
-    margin-right: 1px;
+    padding: 0px;
+    margin-top: 40px;
+  }
+  .tableRow {
+    margin: auto;
+    box-shadow: none;
+  }
+  .femaleImageMobile {
+    display: block;
+    max-width: 190px;
+    margin: 30px 0px 30px 0px;
+  }
+  .maleImageMobile {
+    display: block;
+    max-width: 190px;
+    margin: 30px 0px 30px 0px;
+  }
+  .maleName {
+    padding: 0px;
+  }
+  .femaleName {
+    padding: 0px;
+  }
+  .viewInstructions {
+    margin-bottom: 30px;
+  }
+  .firstAndSecondColumn {
+    padding-left: 0px;
   }
 }
 
-.maleImage {
-  max-width: 15%;
+/* Loading css */
+
+.loader,
+.loader:before,
+.loader:after {
+  background: #70cdee;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
 }
 
-.femaleImage {
-  max-width: 15%;
+.loader {
+  color: #70cdee;
+  text-indent: -9999em;
+  margin: 88px auto;
+  position: relative;
+  font-size: 6px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: "";
+}
+
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.loader:after {
+  left: 1.5em;
+}
+
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
+/* Toggle button css */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 34px;
+  margin-top: 20px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #70cdee;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #f4c2c2;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(85px);
+  -ms-transform: translateX(85px);
+  transform: translateX(85px);
 }

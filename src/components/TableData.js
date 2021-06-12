@@ -9,14 +9,25 @@ const TableData = (props) => {
     gender,
   } = props;
 
-  var extraContent = <div dangerouslySetInnerHTML={{ __html: transcript }} />;
+  var extraContent = <div className="extraContent" dangerouslySetInnerHTML={{ __html: transcript }} />;
 
   return (
     <tr className="tableRow">
       <div className="firstAndSecondColumn">
-        <td className="exerciseName" data-title="Exercise Name">
-          {name}
-        </td>
+
+        <div className="exerciseName">{name}</div>
+
+        {gender === "male" && (
+          <td className="maleName" data-title="Male Name">
+            <img className="maleImageMobile" src={male.image} alt="Male" />
+          </td>
+        )}
+
+        {gender === "female" && (
+          <td className="femaleName" data-title="Female Name">
+            <img className="femaleImageMobile" src={female.image} alt="Female" />
+          </td>
+        )}
 
         <a
           className="read-more-link"
@@ -24,13 +35,13 @@ const TableData = (props) => {
             setReadMore(!readMore);
           }}
         >
-          <h2>{"Learn More"}</h2>
+          <div className="viewInstructions">{"View Instructions"}</div>
         </a>
 
         {readMore && extraContent}
-        </div>
+      </div>
 
-        <div className="thirdColumn">
+      <div className="thirdColumn">
 
         {gender === "male" && (
           <td className="maleName" data-title="Male Name">

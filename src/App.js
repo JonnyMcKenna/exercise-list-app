@@ -3,8 +3,10 @@ import "./App.css";
 import Table from "./components/Table";
 
 function App() {
+
   const [exerciseData, setExerciseData] = useState([]);
-  const [gender, setGender] = useState('male');
+  const [gender, setGender] = useState("male");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadExerciseData();
@@ -16,36 +18,46 @@ function App() {
     );
     const data = await response.json();
     setExerciseData(data);
+    setInterval(setLoading(false), 3000);
   };
 
   return (
     <div className="App">
-      <h1>Exercise List</h1>
+      <h1 className="title">Exercise List App</h1>
 
-      <div class="btn-group btn-toggle gender">
+      <label className="switch">
         <input
-          type="button"
-          name="gender"
-          class="btn btn-default"
-          value="Male"
-          checked={gender === "male"}
+          type="checkbox"
+          id="togBtn"
           onClick={() => {
-            setGender("male");
+            setGender(gender === "male" ? "female" : "male");
           }}
         />
-        <input
-          type="button"
-          name="gender"
-          class="btn btn-primary active"
-          value="Female"
-          checked={gender === "female"}
-          onClick={() => {
-            setGender("female");
-          }}
-        />
-      </div>
+        <div className="slider round">
+          <span
+            className="male"
+            onClick={() => {
+              setGender("female");
+            }}
+          >
+            Male
+          </span>
+          <span
+            className="female"
+            onClick={() => {
+              setGender("male");
+            }}
+          >
+            Female
+          </span>
+        </div>
+      </label>
 
-      <Table exercises={exerciseData.exercises} gender={gender} />
+      {loading ? (
+        <div className="loader">Loading...</div>
+      ) : (
+        <Table exercises={exerciseData.exercises} gender={gender} />
+      )}
     </div>
   );
 }
