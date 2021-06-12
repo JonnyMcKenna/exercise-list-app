@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Table from "./components/Table";
+import Toggle from "./components/Toggle";
+import * as constants from "./constants";
 
 function App() {
-
   const [exerciseData, setExerciseData] = useState([]);
-  const [gender, setGender] = useState("male");
+  const [gender, setGender] = useState(constants.MALE);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,9 +14,7 @@ function App() {
   }, []);
 
   const loadExerciseData = async () => {
-    const response = await fetch(
-      "https://private-922d75-recruitmenttechnicaltest.apiary-mock.com/customexercises/"
-    );
+    const response = await fetch(constants.EXERCISE_API);
     const data = await response.json();
     setExerciseData(data);
     setInterval(setLoading(false), 3000);
@@ -25,33 +24,7 @@ function App() {
     <div className="App">
       <h1 className="title">Exercise List App</h1>
 
-      <label className="switch">
-        <input
-          type="checkbox"
-          id="togBtn"
-          onClick={() => {
-            setGender(gender === "male" ? "female" : "male");
-          }}
-        />
-        <div className="slider round">
-          <span
-            className="male"
-            onClick={() => {
-              setGender("female");
-            }}
-          >
-            Male
-          </span>
-          <span
-            className="female"
-            onClick={() => {
-              setGender("male");
-            }}
-          >
-            Female
-          </span>
-        </div>
-      </label>
+      <Toggle gender={gender} setGender={setGender} />
 
       {loading ? (
         <div className="loader">Loading...</div>

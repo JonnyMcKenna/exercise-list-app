@@ -3,8 +3,6 @@
 }
 
 .exercise-data {
-  /* float: right; */
-  /* margin-right: 50px; */
   width: 50%;
   padding: 40px;
   margin: auto;
@@ -19,7 +17,7 @@
   box-shadow: 1px 1px 2px 2px #e3e3e3;
 }
 
-.thirdColumn {
+.secondColumn {
   text-align: -webkit-right;
 }
 
@@ -33,7 +31,7 @@
   padding: 20px 30px 20px 20px;
 }
 
-.firstAndSecondColumn {
+.firstColumn {
   width: 85%;
   margin-top: 40px;
   text-align: left;
@@ -101,8 +99,6 @@ input:checked + .slider .male {
   display: none;
 }
 
-/*--------- END --------*/
-
 /* Rounded sliders */
 
 .slider.round {
@@ -168,7 +164,7 @@ input:checked + .slider .male {
   .viewInstructions {
     margin-bottom: 30px;
   }
-  .firstAndSecondColumn {
+  .firstColumn {
     padding-left: 0px;
   }
 }
