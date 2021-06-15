@@ -29,7 +29,10 @@ function App() {
       {loading ? (
         <div className="loader">Loading...</div>
       ) : (
-        <Table exercises={exerciseData.exercises} gender={gender} />
+        <Table
+          exercises={exerciseData.exercises ? exerciseData.exercises : []}
+          gender={gender}
+        />
       )}
     </div>
   );

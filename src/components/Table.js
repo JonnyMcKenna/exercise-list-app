@@ -5,16 +5,13 @@ const Table = (props) => {
   const { exercises, gender } = props;
 
   return (
-    <table className="exercise-data">
-      <tbody>
-        {exercises &&
-          exercises.map(function (exercise, index) {
-            return (
-              <TableData key={index} exercise={exercise} gender={gender} />
-            );
-          })}
-      </tbody>
-    </table>
+    exercises.length !== 0 && (
+      <table className="exercise-data">
+        {exercises.map(function (exercise, index) {
+          return <TableData key={index} exercise={exercise} gender={gender} />;
+        })}
+      </table>
+    )
   );
 };
 

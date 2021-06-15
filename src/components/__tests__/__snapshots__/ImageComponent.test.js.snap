@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageComponent should render female image when gender is female 1`] = `
+<body>
+  <div>
+    <div>
+      <img
+        alt="Female"
+        src=""
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ImageComponent should render male image when gender is male 1`] = `
+<body>
+  <div>
+    <div>
+      <img
+        alt="Male"
+        src=""
+      />
+    </div>
+  </div>
+</body>
+`;

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table should not render when exercises array is empty 1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`Table should render when exercises array is not empty 1`] = `
+<body>
+  <div>
+    <table
+      class="exercise-data"
+    >
+      <tbody>
+        <tr
+          class="tableRow"
+        >
+          <td
+            class="firstColumn"
+          >
+            <div
+              class="exerciseName"
+            >
+              name
+            </div>
+            <div />
+            <button
+              class="view-instructions-link"
+              id="view-instructions-link-id"
+            >
+              View Instructions
+            </button>
+          </td>
+          <td
+            class="secondColumn"
+          >
+            <div />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+`;

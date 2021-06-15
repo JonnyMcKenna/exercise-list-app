@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableData should render the specific exercise 1`] = `
+<body>
+  <div>
+    <tbody>
+      <tr
+        class="tableRow"
+      >
+        <td
+          class="firstColumn"
+        >
+          <div
+            class="exerciseName"
+          />
+          <div>
+            <img
+              alt="Male"
+              class="maleImageMobile"
+              src=""
+            />
+          </div>
+          <button
+            class="view-instructions-link"
+            id="view-instructions-link-id"
+          >
+            View Instructions
+          </button>
+        </td>
+        <td
+          class="secondColumn"
+        >
+          <div>
+            <img
+              alt="Male"
+              class="maleImage"
+              src=""
+            />
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </div>
+</body>
+`;

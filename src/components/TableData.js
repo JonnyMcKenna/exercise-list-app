@@ -19,40 +19,43 @@ const TableData = (props) => {
   );
 
   return (
-    <tr className="tableRow">
-      <div className="firstColumn">
-        <div className="exerciseName">{name}</div>
+    <tbody>
+      <tr className="tableRow">
+        <td className="firstColumn">
+          <div className="exerciseName">{name}</div>
 
-        <ImageComponent
-          male={male}
-          female={female}
-          gender={gender}
-          maleClassName={constants.MALE_IMAGE_MOBILE}
-          femaleClassName={constants.FEMALE_IMAGE_MOBILE}
-        />
+          <ImageComponent
+            male={male}
+            female={female}
+            gender={gender}
+            maleClassName={constants.MALE_IMAGE_MOBILE}
+            femaleClassName={constants.FEMALE_IMAGE_MOBILE}
+          />
 
-        <a
-          className="read-more-link"
-          onClick={() => {
-            setViewInstructions(!viewInstructions);
-          }}
-        >
-          <div className="viewInstructions">View Instructions</div>
-        </a>
+          <button
+            className="view-instructions-link"
+            id="view-instructions-link-id"
+            onClick={() => {
+              setViewInstructions(!viewInstructions);
+            }}
+          >
+            View Instructions
+          </button>
 
-        {viewInstructions && extraContent}
-      </div>
+          {viewInstructions && extraContent}
+        </td>
 
-      <div className="secondColumn">
-        <ImageComponent
-          male={male}
-          female={female}
-          gender={gender}
-          maleClassName={constants.MALE_IMAGE}
-          femaleClassName={constants.FEMALE_IMAGE}
-        />
-      </div>
-    </tr>
+        <td className="secondColumn">
+          <ImageComponent
+            male={male}
+            female={female}
+            gender={gender}
+            maleClassName={constants.MALE_IMAGE}
+            femaleClassName={constants.FEMALE_IMAGE}
+          />
+        </td>
+      </tr>
+    </tbody>
   );
 };
 
